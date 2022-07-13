@@ -1,16 +1,18 @@
 package ru.netology.radio;
 
 public class Radio {
-    public int currentStation;
+    private int currentStation;
+
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
     }
 
     public void setCurrentStation(int newCurrentStation) {
-       if (newCurrentStation < 0) {
-           return;
-       }
+        if (newCurrentStation < 0) {
+            return;
+        }
 
         if (newCurrentStation > 9) {
             return;
@@ -18,28 +20,6 @@ public class Radio {
 
         currentStation = newCurrentStation;
     }
-
-    public void increaseStation() {
-        if (currentStation < 9) {
-            currentStation = currentStation + 1;
-        }
-
-        if (currentStation >= 9) {
-            currentStation = 0;
-        }
-    }
-
-    public void decreaseStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
-        }
-
-        if (currentStation <= 0) {
-            currentStation = 9;
-        }
-    }
-
-    public int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -57,23 +37,43 @@ public class Radio {
         currentVolume = newCurrentVolume;
     }
 
-    public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-        }
+    public void increaseStation() {
+        int target = currentStation + 1;
 
-        if (currentVolume >= 10) {
+        if (target > 9) {
+            currentStation = 0;
+        } else currentStation = target;
+    }
+
+    public void decreaseStation() {
+
+        int target = currentStation - 1;
+
+        if (target < 0) {
+            currentStation = 9;
+        }
+        else currentStation = target;
+    }
+
+    public void increaseVolume() {
+
+        int target = currentVolume + 1;
+
+        if (target > 10) {
             currentVolume = 10;
         }
+
+        else currentVolume = target;
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        }
 
-        if (currentVolume <= 0) {
+        int target = currentVolume - 1;
+
+        if (target < 0) {
             currentVolume = 0;
         }
+
+        else currentVolume = target;
     }
 }
