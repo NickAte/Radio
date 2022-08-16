@@ -8,7 +8,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStation() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(5);
 
@@ -20,7 +20,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetStationUpperNine() {
-        Radio radio = new Radio(10, 100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(15);
 
@@ -32,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetStationLowerZero() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(-3);
 
@@ -44,7 +44,7 @@ public class RadioTest {
 
     @Test
     public void increaseStation() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(8);
         radio.increaseStation();
@@ -57,7 +57,7 @@ public class RadioTest {
 
     @Test
     public void increaseHigherNineStation() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(9);
         radio.increaseStation();
@@ -70,7 +70,7 @@ public class RadioTest {
 
     @Test
     public void decreaseStation() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(1);
         radio.decreaseStation();
@@ -83,7 +83,7 @@ public class RadioTest {
 
     @Test
     public void decreaseLowerZeroStation() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentStation(0);
         radio.decreaseStation();
@@ -96,7 +96,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolume() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(5);
 
@@ -108,7 +108,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetVolumeUpperTen() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(105);
 
@@ -120,7 +120,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetVolumeLowerZero() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(-3);
 
@@ -132,7 +132,7 @@ public class RadioTest {
 
     @Test
     public void increaseVolume() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(9);
         radio.increaseVolume();
@@ -145,7 +145,7 @@ public class RadioTest {
 
     @Test
     public void increaseHigherTenVolume() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(100);
         radio.increaseVolume();
@@ -158,7 +158,7 @@ public class RadioTest {
 
     @Test
     public void decreaseVolume() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(1);
         radio.decreaseVolume();
@@ -171,7 +171,7 @@ public class RadioTest {
 
     @Test
     public void decreaseLowerZeroVolume() {
-        Radio radio = new Radio(10,100);
+        Radio radio = new Radio(10);
 
         radio.setCurrentVolume(0);
         radio.decreaseVolume();
@@ -188,7 +188,7 @@ public class RadioTest {
 
         radio.decreaseStation();
 
-        int expected = 8;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
