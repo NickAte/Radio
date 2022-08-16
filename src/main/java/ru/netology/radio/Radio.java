@@ -2,78 +2,71 @@ package ru.netology.radio;
 
 public class Radio {
     private int currentStation;
-
     private int currentVolume;
+    private int maxStation = 9;
+
+    public Radio() {
+        maxStation = 9;
+    }
+
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
+    }
+    public void increaseStation() {
+        if (currentStation < maxStation) {
+            currentStation++;
+        } else {
+            currentStation = 0;
+        }
+    }
+
+    public void decreaseStation() {
+        if (currentStation > 0) {
+            currentStation--;
+        } else {
+            currentStation = maxStation;
+        }
+    }
+
+    public void increaseVolume() {
+        if (currentVolume < 100) {
+            currentVolume++;
+        }
+    }
+
+    public void decreaseVolume() {
+        if (currentVolume > 0) {
+            currentVolume--;
+        } else {
+            currentVolume = 0;
+        }
+    }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
             return;
         }
-
-        if (newCurrentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
-
-        currentStation = newCurrentStation;
+        this.currentStation = currentStation;
     }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
             return;
         }
-
-        if (newCurrentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
-
-        currentVolume = newCurrentVolume;
-    }
-
-    public void increaseStation() {
-        int target = currentStation + 1;
-
-        if (target > 9) {
-            currentStation = 0;
-        } else currentStation = target;
-    }
-
-    public void decreaseStation() {
-
-        int target = currentStation - 1;
-
-        if (target < 0) {
-            currentStation = 9;
-        }
-        else currentStation = target;
-    }
-
-    public void increaseVolume() {
-
-        int target = currentVolume + 1;
-
-        if (target > 10) {
-            currentVolume = 10;
-        }
-
-        else currentVolume = target;
-    }
-
-    public void decreaseVolume() {
-
-        int target = currentVolume - 1;
-
-        if (target < 0) {
-            currentVolume = 0;
-        }
-
-        else currentVolume = target;
+        this.currentVolume = currentVolume;
     }
 }
